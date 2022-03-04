@@ -13,7 +13,7 @@ public class StockController {
     StockServiceImpl stockService = new StockServiceImpl();
 
 
-    @RequestMapping("/GOOG")
+    @RequestMapping("/")
     BigDecimal home(String stockSymbol) {
         return stockService.findStock(stockSymbol).getStock().getQuote().getPrice();
     }
