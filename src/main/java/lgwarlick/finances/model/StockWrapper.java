@@ -10,6 +10,8 @@ public class StockWrapper {
 
     private Stock stock;
     private LocalDateTime lastAccess;
+    private String name;
+
 
     public StockWrapper(Stock stock) {
     }
@@ -17,5 +19,9 @@ public class StockWrapper {
     public StockWrapper(Stock stock, LocalDateTime lastAccess) {
         this.stock = stock;
         this.lastAccess = lastAccess;
+    }
+
+    public String getName() {
+        return this.stock.getName();
     }
 }

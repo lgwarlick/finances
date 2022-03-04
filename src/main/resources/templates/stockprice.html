@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Price</title>
+</head>
+<body>
+<!--/*@thymesVar id="card" type="lgwarlick.cards.model.StockWrapper"*/-->
+    <h1>Current Stock Price</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Stock</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="stockwrapper : ${stockwrapper}">
+                <td th:text="${stockwrapper.name}">Stock Name</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
