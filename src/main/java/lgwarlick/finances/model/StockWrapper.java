@@ -1,27 +1,24 @@
 package lgwarlick.finances.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.With;
+import org.springframework.beans.factory.annotation.Autowired;
 import yahoofinance.Stock;
 
 import java.time.LocalDateTime;
 
 @Getter
+@With
+@AllArgsConstructor
 public class StockWrapper {
 
-    private Stock stock;
-    private LocalDateTime lastAccess;
-    private String name;
+    private final Stock stock;
+    private final LocalDateTime lastAccess;
 
 
-    public StockWrapper(Stock stock) {
-    }
-
-    public StockWrapper(Stock stock, LocalDateTime lastAccess) {
+    public StockWrapper(final Stock stock) {
         this.stock = stock;
-        this.lastAccess = lastAccess;
-    }
-
-    public String getName() {
-        return this.stock.getName();
+        lastAccess = LocalDateTime.now();
     }
 }
