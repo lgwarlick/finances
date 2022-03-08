@@ -1,21 +1,30 @@
 package lgwarlick.finances.controller;
 
 
-import lgwarlick.finances.service.StockServiceImpl;
+import lgwarlick.finances.service.StockService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.math.BigDecimal;
 
 @Controller
 public class StockController {
 
-    StockServiceImpl stockService = new StockServiceImpl();
+    private final StockService stockService;
 
+    public StockController(StockService stockService) {
+        this.stockService = stockService;
+    }
 
-    @RequestMapping("/")
-    BigDecimal home(String stockSymbol) {
-        return stockService.findStock(stockSymbol).getStock().getQuote().getPrice();
+    @RequestMapping("/price/{stockSymbol}")
+    public String stockPrice(@PathVariable String stockSymbol, Model model) {
+
+        model.addAttribute(stockService.findStock(stockSymbol).getStock().getQuote().getPrice());
+
+        return "stockprice";
     }
 
 }
