@@ -3,7 +3,6 @@ package lgwarlick.finances.model;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.With;
-import org.springframework.beans.factory.annotation.Autowired;
 import yahoofinance.Stock;
 
 import java.time.LocalDateTime;
