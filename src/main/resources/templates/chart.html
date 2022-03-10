@@ -9,15 +9,21 @@
 
 </head>
 <body>
+<!--/*@thymesVar id="card" type="lgwarlick.finances.model.StockWrapper"*/-->
+<h1>Stock</h1>
 
 <div id="candlestick">
 
 </div>
-<script>
+<script th:inline="javascript">
+
+
+
     var options = {
         series: [{
             data: [{
                 x: new Date(1538778600000),
+                // Open, High, Low, Close
                 y: [6629.81, 6650.5, 6623.04, 6633.33]
             },
                 {
@@ -271,7 +277,7 @@
         },
         yaxis: {
             tooltip: {
-                enabled: true
+                enabled: false
             }
         }
     };
