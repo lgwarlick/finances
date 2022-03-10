@@ -5,21 +5,10 @@
     <title>Price</title>
 </head>
 <body>
-<!--/*@thymesVar id="card" type="lgwarlick.cards.model.StockWrapper"*/-->
+<!--/*@thymesVar id="card" type="lgwarlick.finances.model.StockWrapper"*/-->
     <h1>Current Stock Price</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Stock</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="stockwrapper : ${stockwrapper}">
-                <td th:text="${stockwrapper.name}">Stock Name</td>
-            </tr>
-        </tbody>
-    </table>
+    <p th:text="${stock.name}">Stock</p>
+    <p>Price</p>
 
 </body>
 </html>

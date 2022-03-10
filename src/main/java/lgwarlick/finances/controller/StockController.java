@@ -19,12 +19,17 @@ public class StockController {
         this.stockService = stockService;
     }
 
-    @RequestMapping("/price/{stockSymbol}")
+    @RequestMapping("/{stockSymbol}")
     public String stockPrice(@PathVariable String stockSymbol, Model model) {
 
         model.addAttribute(stockService.findStock(stockSymbol).getStock().getQuote().getPrice());
 
         return "stockprice";
+    }
+
+    @RequestMapping("/chart")
+    public String displayChart(){
+        return "chart";
     }
 
 }
